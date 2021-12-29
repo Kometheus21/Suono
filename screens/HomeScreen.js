@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
-const AllScreen = () => {
+const HomeScreen = () => {
   return (
     <View style={styles.cont}>
       <Text>This is the screen for home info</Text>
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AllScreen;
+export default HomeScreen;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -27,8 +27,14 @@ const Navigation = () => {
             },
           }}
         >
+          {/* <Image source={require("../assets/logo.png")} /> */}
           <Tab.Screen name="Home" component={HomeScreen} style={styles.tab} />
-          <Tab.Screen name="All" component={AllScreen} style={styles.tab} />
+          <Tab.Screen
+            name="All"
+            component={AllScreen}
+            style={styles.tab}
+            
+          />
           <Tab.Screen
             name="Favourites"
             component={FavouriteScreen}
