@@ -1,18 +1,19 @@
 import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 
-const RoundButton = ({ color, text, onclick }) => {
+const RoundButton = (props) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={onclick}
+        onPress={props.onPress}
+        onLongPress={props.longPress}
         style={{
           shadowColor: "rgba(0,0,0, .9)",
           shadowOffset: { width: 1, height: 1 },
           shadowOpacity: 1,
           shadowRadius: 1,
           elevation: 2,
-          backgroundColor: color,
+          backgroundColor: props.color,
           borderRadius: 100,
           padding: 30,
           justifyContent: "center",
@@ -20,7 +21,7 @@ const RoundButton = ({ color, text, onclick }) => {
           width: 50,
         }}
       />
-      <Text style={styles.btnText}>{text}</Text>
+      <Text style={styles.btnText}>{props.text}</Text>
     </View>
   );
 };

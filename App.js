@@ -4,6 +4,7 @@ import { StyleSheet } from "react-native";
 import Navigation from "./nav/Navigation";
 
 export default function App() {
+  
   return (
     <SafeAreaProvider>
         <Navigation />
