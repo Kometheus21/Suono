@@ -7,6 +7,11 @@ const RoundButton = ({ color, text, onclick }) => {
       <TouchableOpacity
         onPress={onclick}
         style={{
+          shadowColor: "rgba(0,0,0, .9)",
+          shadowOffset: { width: 1, height: 1 },
+          shadowOpacity: 1,
+          shadowRadius: 1,
+          elevation: 2,
           backgroundColor: color,
           borderRadius: 100,
           padding: 30,
@@ -20,16 +25,15 @@ const RoundButton = ({ color, text, onclick }) => {
   );
 };
 
-const styles = 
-  StyleSheet.create({
-    container: {
-      alignItems: "center",
-      margin: 30,
-    },
-    btnText: {
-      color: "grey",
-      margin: 10,
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    alignItems: "center",
+    margin: 30,
+  },
+  btnText: {
+    color: "grey",
+    margin: 10,
+  },
+});
 
 export default RoundButton;

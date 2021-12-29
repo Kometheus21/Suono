@@ -7,7 +7,7 @@ const HomeScreen = () => {
     <View style={styles.container}>
       <View style={styles.tempHeader}>
         {/* In here goes logo, name of app and soon navigation */}
-        <Text style={styles.heading}>This is all btns</Text>
+        <Text style={styles.heading}>Choose Your favourite!</Text>
       </View>
       <View style={styles.btnContainer}>
         <RoundButton color={"grey"} text={"First"} />
@@ -41,11 +41,10 @@ const styles = StyleSheet.create({
     // marginTop: 175,
     textAlign: "center",
     fontWeight: "700",
-    color: "#fff",
+    color: "grey",
   },
   tempHeader: {
-    // height: 200,
-    backgroundColor: "pink",
+    
   },
 });
 
