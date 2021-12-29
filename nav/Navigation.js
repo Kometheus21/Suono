@@ -19,19 +19,15 @@ const Navigation = () => {
         <Tab.Navigator
           style={styles.navCont}
           screenOptions={{
-            tabBarActiveTintColor: "black",
-            tabBarLabelStyle: { color: "white", fontWeight: "bold" },
-            tabBarInactiveTintColor: "grey",
+            tabBarActiveTintColor: "#392F5A",
             tabBarContentContainerStyle: {
               backgroundColor: "pink",
             },
-            tabBarIndicatorStyle: {
-              borderBottomColor: "black",
-              borderBottomWidth: 2,
-            },
+            tabBarIndicatorStyle:{
+              backgroundColor:"purple"
+            }
           }}
         >
-          {/* <Image source={require("../assets/logo.png")} /> */}
           <Tab.Screen name="Home" component={HomeScreen} style={styles.tab} />
           <Tab.Screen name="All" component={AllScreen} style={styles.tab} />
           <Tab.Screen
@@ -49,7 +45,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navCont: {
-    // paddingTop: 50,
     backgroundColor: "pink",
   },
   tab: {
@@ -58,22 +53,23 @@ const styles = StyleSheet.create({
   img: {
     height: 40,
     width: 80,
-    margin: 10,
+    marginBottom: 5,
+    marginTop: 10,
   },
   imgCont: {
     backgroundColor: "pink",
     alignItems: "center",
   },
   heading: {
-    margin: 5,
-    fontSize:14,
-    textAlign:"center",
-    color:"black",
-    fontWeight:"bold",
-    borderColor: "black",
-    borderWidth:1,
-    borderRadius:5,
-    padding:5
+    marginBottom: 10,
+    fontSize: 14,
+    textAlign: "center",
+    color: "#D3F8E2",
+    fontWeight: "bold",
+    borderColor: "#D3F8E2",
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 5,
   },
 });
 
