@@ -1,20 +1,22 @@
 import React from "react";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { StyleSheet } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
+import { StyleSheet, Image, View } from "react-native";
 import Navigation from "./nav/Navigation";
-
-
 
 export default function App() {
   return (
     <SafeAreaProvider>
-      <Navigation  />
+      <Navigation />
     </SafeAreaProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    backgroundColor: "pink",
+  },
+  logo: {
+    height: 50,
+    width: "auto",
   },
 });

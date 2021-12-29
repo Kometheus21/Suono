@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, View, Image, Text } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { NavigationContainer } from "@react-navigation/native";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
@@ -11,7 +11,11 @@ const Navigation = () => {
   const Tab = createMaterialTopTabNavigator();
   return (
     <SafeAreaView style={styles.cont}>
-      <NavigationContainer independent="true">
+      <View style={styles.imgCont}>
+        <Image source={require("../assets/logo.png")} style={styles.img} />
+        <Text style={styles.heading}>SUONO</Text>
+      </View>
+      <NavigationContainer a independent="true">
         <Tab.Navigator
           style={styles.navCont}
           screenOptions={{
@@ -29,12 +33,7 @@ const Navigation = () => {
         >
           {/* <Image source={require("../assets/logo.png")} /> */}
           <Tab.Screen name="Home" component={HomeScreen} style={styles.tab} />
-          <Tab.Screen
-            name="All"
-            component={AllScreen}
-            style={styles.tab}
-            
-          />
+          <Tab.Screen name="All" component={AllScreen} style={styles.tab} />
           <Tab.Screen
             name="Favourites"
             component={FavouriteScreen}
@@ -50,11 +49,31 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navCont: {
-    paddingTop: 50,
+    // paddingTop: 50,
     backgroundColor: "pink",
   },
   tab: {
     color: "pink",
+  },
+  img: {
+    height: 40,
+    width: 80,
+    margin: 10,
+  },
+  imgCont: {
+    backgroundColor: "pink",
+    alignItems: "center",
+  },
+  heading: {
+    margin: 5,
+    fontSize:14,
+    textAlign:"center",
+    color:"black",
+    fontWeight:"bold",
+    borderColor: "black",
+    borderWidth:1,
+    borderRadius:5,
+    padding:5
   },
 });
 

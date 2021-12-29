@@ -73,7 +73,6 @@ const AllScreen = () => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
       >
@@ -97,7 +96,7 @@ const AllScreen = () => {
       <FlatList
         data={data}
         numColumns={3}
-        columnWrapperStyle={{ flex: 1, justifyContent: "space-evenly"}}
+        columnWrapperStyle={{ flex: 1, justifyContent: "space-evenly" }}
         renderItem={({ item }) => (
           <View style={styles.item}>
             <RoundButton
@@ -107,7 +106,7 @@ const AllScreen = () => {
               longPress={handlerLongPress}
               styles={styles.item}
             />
-           </View>
+          </View>
         )}
         keyExtractor={(item) => item.id}
       />
@@ -122,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   heading: {
-    margin:30,
+    margin: 30,
     textAlign: "center",
     fontWeight: "700",
     color: "grey",
@@ -136,6 +135,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     alignItems: "center",
     justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
   modalText: {
     color: "#fff",
