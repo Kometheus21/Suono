@@ -16,13 +16,13 @@ const HomeScreen = () => {
       </View>
       <View style={styles.btnContainer}>
         <RoundButton color={"pink"} text={"First"} />
-        <RoundButton color={"#000"} text={"Scnd"} />
-        <RoundButton color={"#000"} text={"Third"} />
+        <RoundButton color={"purple"} text={"Scnd"} />
+        <RoundButton color={"green"} text={"Third"} />
       </View>
       <View style={styles.btnContainer}>
-        <RoundButton color={"#000"} text={"First"} />
-        <RoundButton color={"#000"} text={"Scnd"} />
-        <RoundButton color={"#000"} text={"Third"} />
+        <RoundButton color={"lightgreen"} text={"First"} />
+        <RoundButton color={"yellow"} text={"Scnd"} />
+        <RoundButton color={"lightblue"} text={"Third"} />
       </View>
     </View>
   );
@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
   },
   container: {
-    width: "100%",
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
   heading: {
     // marginTop: 175,

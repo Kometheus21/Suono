@@ -11,11 +11,29 @@ const Navigation = () => {
   const Tab = createMaterialTopTabNavigator();
   return (
     <SafeAreaView style={styles.cont}>
-      <NavigationContainer independent="true" style={styles.navCont}>
-        <Tab.Navigator>
-          <Tab.Screen name="Home" component={HomeScreen} />
-          <Tab.Screen name="All" component={AllScreen} />
-          <Tab.Screen name="Favourites" component={FavouriteScreen} />
+      <NavigationContainer independent="true">
+        <Tab.Navigator
+          style={styles.navCont}
+          screenOptions={{
+            tabBarActiveTintColor: "black",
+            tabBarLabelStyle: { color: "white", fontWeight: "bold" },
+            tabBarInactiveTintColor: "grey",
+            tabBarContentContainerStyle: {
+              backgroundColor: "pink",
+            },
+            tabBarIndicatorStyle: {
+              borderBottomColor: "black",
+              borderBottomWidth: 2,
+            },
+          }}
+        >
+          <Tab.Screen name="Home" component={HomeScreen} style={styles.tab} />
+          <Tab.Screen name="All" component={AllScreen} style={styles.tab} />
+          <Tab.Screen
+            name="Favourites"
+            component={FavouriteScreen}
+            style={styles.tab}
+          />
         </Tab.Navigator>
       </NavigationContainer>
     </SafeAreaView>
@@ -25,10 +43,13 @@ const styles = StyleSheet.create({
   cont: {
     flex: 1,
   },
-  navCont:{
-    
-  }
-
+  navCont: {
+    paddingTop: 50,
+    backgroundColor: "pink",
+  },
+  tab: {
+    color: "pink",
+  },
 });
 
 export default Navigation;
