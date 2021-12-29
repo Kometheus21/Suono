@@ -7,7 +7,7 @@ const RoundButton = ({ color, text, onclick }) => {
       <TouchableOpacity
         onPress={onclick}
         style={{
-          backgroundColor:  color ,
+          backgroundColor: color,
           borderRadius: 100,
           padding: 30,
           justifyContent: "center",
@@ -20,21 +20,14 @@ const RoundButton = ({ color, text, onclick }) => {
   );
 };
 
-const styles = () =>
+const styles = 
   StyleSheet.create({
     container: {
       alignItems: "center",
       margin: 30,
     },
-    roundBtn: {
-      // backgroundColor: "#000",
-      borderRadius: 100,
-      padding: 30,
-      justifyContent: "center",
-      height: 50,
-      width: 50,
-    },
     btnText: {
+      color: "grey",
       margin: 10,
     },
   });
