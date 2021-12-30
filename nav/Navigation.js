@@ -15,17 +15,19 @@ const Navigation = () => {
         <Image source={require("../assets/logo.png")} style={styles.img} />
         <Text style={styles.heading}>SUONO</Text>
       </View>
-      <NavigationContainer a independent="true">
+      <NavigationContainer independent="true">
         <Tab.Navigator
           style={styles.navCont}
           screenOptions={{
             tabBarActiveTintColor: "#392F5A",
             tabBarContentContainerStyle: {
-              backgroundColor: "pink",
+              backgroundColor: "#F092DD",
             },
-            tabBarIndicatorStyle:{
-              backgroundColor:"purple"
-            }
+            tabBarIndicatorContainerStyle: {
+              borderBottomColor: "#392F5A",
+              borderBottomWidth: 2,
+            },
+            tabBarLabelStyle: { fontWeight: "bold" },
           }}
         >
           <Tab.Screen name="Home" component={HomeScreen} style={styles.tab} />
@@ -45,10 +47,10 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   navCont: {
-    backgroundColor: "pink",
+    backgroundColor: "#F092DD",
   },
   tab: {
-    color: "pink",
+    // color: "pink",
   },
   img: {
     height: 40,
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   imgCont: {
-    backgroundColor: "pink",
+    backgroundColor: "#F092DD",
     alignItems: "center",
   },
   heading: {

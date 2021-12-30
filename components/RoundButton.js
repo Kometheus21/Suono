@@ -29,16 +29,15 @@ const RoundButton = (props) => {
 const styles = StyleSheet.create({
   container: {
     height: 120,
-    width:100,
+    width: 100,
     alignItems: "center",
-    justifyContent:"flex-start",
+    justifyContent: "flex-start",
     margin: 5,
-    
   },
   btnText: {
-    color: "grey",
+    color: "#392F5A",
     margin: 10,
-    textAlign:"center",
+    textAlign: "center",
   },
 });
 

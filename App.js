@@ -13,7 +13,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "pink",
+    backgroundColor: "#F092DD",
   },
   logo: {
     height: 50,
