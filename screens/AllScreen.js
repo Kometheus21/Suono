@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -7,43 +7,55 @@ import {
   Pressable,
   FlatList,
 } from "react-native";
+import { Audio } from "expo-av";
 import RoundButton from "../components/RoundButton";
 
+const sounds = [
+  require("../assets/s1.wav"),
+  require("../assets/s2.wav"),
+  require("../assets/s3.wav"),
+  require("../assets/s4.wav"),
+  require("../assets/s5.wav"),
+  require("../assets/s6.wav"),
+  require("../assets/s7.wav"),
+  require("../assets/s8.wav"),
+  require("../assets/s9.wav"),
+];
 const data = [
   {
-    id: "1",
+    id: "0",
     title: "First Sound",
   },
   {
-    id: "2",
+    id: "1",
     title: "Second Sound",
   },
   {
-    id: "3",
+    id: "2",
     title: "Third Sound",
   },
   {
-    id: "4",
+    id: "3",
     title: "Fourth Sound",
   },
   {
-    id: "5",
+    id: "4",
     title: "Fifth Sound",
   },
   {
-    id: "6",
+    id: "5",
     title: "Sixth Sound",
   },
   {
-    id: "7",
+    id: "6",
     title: "Seventh Sound",
   },
   {
-    id: "8",
+    id: "7",
     title: "Eighth Sound",
   },
   {
-    id: "9",
+    id: "8",
     title: "Ninth Sound",
   },
 ];
@@ -57,15 +69,34 @@ const generateColor = () => {
 
 const AllScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
-
   const handlerLongPress = () => {
     //on longpress open modal
     setModalVisible(true);
   };
-  const handlerPress = () => {
-    //on press play the sound
-    alert("Button Pressed " + generateColor());
-  };
+  const [sound, setSound] = useState();
+  async function handlerPress(id) {
+    const sndObj = new Audio.Sound();
+    try {
+      let src = sounds[id];
+      await sndObj.loadAsync(src);
+      await sndObj.playAsync().then(async (playbackStatus) => {
+        setTimeout(() => {
+          sndObj.unloadAsync();
+        }, playbackStatus.playableDurationMillis);
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // useEffect(() => {
+  //   return sound
+  //     ? () => {
+  //         sound.unloadAsync();
+  //       }
+  //     : undefined;
+  // }, [sound]);
+
   return (
     <View style={styles.container}>
       <Modal
@@ -102,10 +133,10 @@ const AllScreen = () => {
             <RoundButton
               color={generateColor()}
               text={item.title}
-              onPress={handlerPress}
+              onPress={() => handlerPress(item.id)}
               longPress={handlerLongPress}
               styles={styles.item}
-            />
+            ></RoundButton>
           </View>
         )}
         keyExtractor={(item) => item.id}
