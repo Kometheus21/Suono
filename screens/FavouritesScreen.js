@@ -1,11 +1,32 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { View, StyleSheet, FlatList, Text } from "react-native";
+import RoundButton from "../components/RoundButton";
+import { expFav } from "./AllScreen";
+import { handlerPress } from "./AllScreen";
 
 const FavouriteScreen = () => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Text>This is the screen where favourite buttons go</Text>
-    </View>
+    <FlatList
+      data={expFav}
+      numColumns={3}
+      columnWrapperStyle={{ flex: 1, justifyContent: "space-evenly" }}
+      renderItem={({ item }) => (
+        <View style={styles.item}>
+          <RoundButton
+            color={"#CC2936"}
+            text={item.title}
+            onPress={() => handlerPress(item.id)}
+            styles={styles.item}
+          />
+          <Text>I got in list</Text>
+        </View>
+      )}
+      keyExtractor={(item) => item.id}
+    />
   );
 };
+const styles = StyleSheet.create({
+  item: {},
+});
+
 export default FavouriteScreen;

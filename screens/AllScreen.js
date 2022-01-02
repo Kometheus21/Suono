@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -9,7 +9,20 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 import RoundButton from "../components/RoundButton";
-
+export async function handlerPress(id) {
+  const sndObj = new Audio.Sound();
+  try {
+    let src = sounds[id];
+    await sndObj.loadAsync(src);
+    await sndObj.playAsync().then(async (playbackStatus) => {
+      setTimeout(() => {
+        sndObj.unloadAsync();
+      }, playbackStatus.playableDurationMillis);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+}
 const sounds = [
   require("../assets/s1.wav"),
   require("../assets/s2.wav"),
@@ -24,39 +37,39 @@ const sounds = [
 const data = [
   {
     id: "0",
-    title: "First Sound",
+    title: "Please",
   },
   {
     id: "1",
-    title: "Second Sound",
+    title: "be",
   },
   {
     id: "2",
-    title: "Third Sound",
+    title: "careful",
   },
   {
     id: "3",
-    title: "Fourth Sound",
+    title: "when",
   },
   {
     id: "4",
-    title: "Fifth Sound",
+    title: "you",
   },
   {
     id: "5",
-    title: "Sixth Sound",
+    title: "are",
   },
   {
     id: "6",
-    title: "Seventh Sound",
+    title: "playing",
   },
   {
     id: "7",
-    title: "Eighth Sound",
+    title: "with",
   },
   {
     id: "8",
-    title: "Ninth Sound",
+    title: "fire!",
   },
 ];
 
@@ -66,36 +79,34 @@ const generateColor = () => {
     .padStart(6, "0");
   return `#${randomColor}`;
 };
-
+let favouritesList = [];
 const AllScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
-  const handlerLongPress = () => {
+  const [id, setId] = useState();
+  const [favoriteList, setFavoriteList] = useState([]);
+  const addToFav = (item) => {
+    setFavoriteList([...favoriteList, item]);
+    favouritesList = { favoriteList };
+    
+  };
+
+  const onRemoveFavorite = (btn) => {
+    const filteredList = favoriteList.filter((item) => item.id !== btn.id);
+    setFavoriteList(filteredList);
+  };
+  const ifExists = (btn) => {
+    if (favoriteList.filter((item) => item.id === btn.id).length > 0) {
+      return true;
+    }
+    return false;
+  };
+  function handlerLongPress(itemId) {
     //on longpress open modal
     setModalVisible(true);
-  };
-  const [sound, setSound] = useState();
-  async function handlerPress(id) {
-    const sndObj = new Audio.Sound();
-    try {
-      let src = sounds[id];
-      await sndObj.loadAsync(src);
-      await sndObj.playAsync().then(async (playbackStatus) => {
-        setTimeout(() => {
-          sndObj.unloadAsync();
-        }, playbackStatus.playableDurationMillis);
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    setId(itemId);
   }
 
-  // useEffect(() => {
-  //   return sound
-  //     ? () => {
-  //         sound.unloadAsync();
-  //       }
-  //     : undefined;
-  // }, [sound]);
+  
 
   return (
     <View style={styles.container}>
@@ -111,14 +122,23 @@ const AllScreen = () => {
           <View style={styles.modal}>
             {/* here goes modal functionality */}
             <Pressable style={styles.addToFavBtn}>
-              <Text style={styles.modalText}>add to favourites</Text>
+              <Text
+                style={styles.modalText}
+                onPress={() =>
+                  ifExists(data[id])
+                    ? onRemoveFavorite(data[id])
+                    : addToFav(data[id])
+                }
+              >
+                add to favourites
+              </Text>
             </Pressable>
             <Text style={styles.modalText}>-------------------------</Text>
             <Pressable
               style={styles.closeBtn}
               onPress={() => setModalVisible(!modalVisible)}
             >
-              <Text style={styles.modalText}> close</Text>
+              <Text style={styles.modalText}>close</Text>
             </Pressable>
           </View>
         </View>
@@ -134,9 +154,9 @@ const AllScreen = () => {
               color={generateColor()}
               text={item.title}
               onPress={() => handlerPress(item.id)}
-              longPress={handlerLongPress}
+              longPress={() => handlerLongPress(item.id)}
               styles={styles.item}
-            ></RoundButton>
+            />
           </View>
         )}
         keyExtractor={(item) => item.id}
@@ -144,6 +164,7 @@ const AllScreen = () => {
     </View>
   );
 };
+export let expFav = favouritesList;
 const styles = StyleSheet.create({
   btnContainer: {},
   container: {
