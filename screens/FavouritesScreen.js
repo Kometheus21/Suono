@@ -4,6 +4,7 @@ import RoundButton from "../components/RoundButton";
 import { favList } from "./AllScreen";
 import { handlerPress } from "./AllScreen";
 
+
 const FavouriteScreen = () => {
   return (
     <View style={styles.item}>

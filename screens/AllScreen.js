@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import { Audio } from "expo-av";
 import RoundButton from "../components/RoundButton";
+
 export async function handlerPress(id) {
   const sndObj = new Audio.Sound();
   try {
@@ -23,6 +24,7 @@ export async function handlerPress(id) {
     console.log(error);
   }
 }
+
 const sounds = [
   require("../assets/s1.wav"),
   require("../assets/s2.wav"),
@@ -34,6 +36,7 @@ const sounds = [
   require("../assets/s8.wav"),
   require("../assets/s9.wav"),
 ];
+
 const data = [
   {
     id: "0",
@@ -87,19 +90,22 @@ const AllScreen = () => {
   const addToFav = (item) => {
     setFavoriteList([...favoriteList, item]);
     favList.push(item);
-    
+    setModalVisible(false);
+    console.log(favList);
   };
 
   const onRemoveFavorite = (btn) => {
     const filteredList = favoriteList.filter((item) => item.id !== btn.id);
     setFavoriteList(filteredList);
   };
+
   const ifExists = (btn) => {
     if (favoriteList.filter((item) => item.id === btn.id).length > 0) {
       return true;
     }
     return false;
   };
+
   function handlerLongPress(itemId) {
     //on longpress open modal
     setModalVisible(true);
