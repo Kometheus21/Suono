@@ -79,14 +79,14 @@ const generateColor = () => {
     .padStart(6, "0");
   return `#${randomColor}`;
 };
-let favouritesList = [];
+export var favList = [];
 const AllScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [id, setId] = useState();
   const [favoriteList, setFavoriteList] = useState([]);
   const addToFav = (item) => {
     setFavoriteList([...favoriteList, item]);
-    favouritesList = { favoriteList };
+    favList.push(item);
     
   };
 
@@ -105,8 +105,6 @@ const AllScreen = () => {
     setModalVisible(true);
     setId(itemId);
   }
-
-  
 
   return (
     <View style={styles.container}>
@@ -143,7 +141,7 @@ const AllScreen = () => {
           </View>
         </View>
       </Modal>
-      <Text style={styles.heading}>Choose Your Favourite!</Text>
+      <Text style={styles.heading}>Choose Your Favourite and Play!</Text>
       <FlatList
         data={data}
         numColumns={3}
@@ -164,7 +162,7 @@ const AllScreen = () => {
     </View>
   );
 };
-export let expFav = favouritesList;
+
 const styles = StyleSheet.create({
   btnContainer: {},
   container: {

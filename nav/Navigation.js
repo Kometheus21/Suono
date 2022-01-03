@@ -20,8 +20,11 @@ const Navigation = () => {
           style={styles.navCont}
           screenOptions={{
             tabBarActiveTintColor: "#392F5A",
-            tabBarIndicatorContainerStyle: { borderBottomWidth:10,borderBottomColor:"#392F5A"},
-            tabBarIndicatorStyle:{color:"#392F5A",borderBottomWidth:3},
+            tabBarIndicatorContainerStyle: {
+              borderBottomWidth: 10,
+              borderBottomColor: "#392F5A",
+            },
+            tabBarIndicatorStyle: { color: "#392F5A", borderBottomWidth: 3 },
             tabBarContentContainerStyle: {
               backgroundColor: "#F092DD",
             },
