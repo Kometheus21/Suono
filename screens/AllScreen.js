@@ -40,39 +40,39 @@ const sounds = [
 const data = [
   {
     id: "0",
-    title: "s1",
+    title: "BING BONG",
   },
   {
     id: "1",
-    title: "s2",
+    title: "Tā nav smuki",
   },
   {
     id: "2",
-    title: "s3",
+    title: "Nu pasmaidi",
   },
   {
     id: "3",
-    title: "s4",
+    title: "Hello",
   },
   {
     id: "4",
-    title: "s5",
+    title: "Son & Wave",
   },
   {
     id: "5",
-    title: "s6",
+    title: "Spangebob",
   },
   {
     id: "6",
-    title: "s7",
+    title: "Gan jau saies",
   },
   {
     id: "7",
-    title: "s8",
+    title: "Gulta",
   },
   {
     id: "8",
-    title: "s9",
+    title: "Nekaitini",
   },
 ];
 
@@ -91,7 +91,6 @@ const AllScreen = () => {
     setFavoriteList([...favoriteList, item]);
     favList.push(item);
     setModalVisible(false);
-    console.log(favList);
   };
 
   const onRemoveFavorite = (btn) => {
