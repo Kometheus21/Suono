@@ -37,39 +37,39 @@ const sounds = [
 const data = [
   {
     id: "0",
-    title: "Please",
+    title: "s1",
   },
   {
     id: "1",
-    title: "be",
+    title: "s2",
   },
   {
     id: "2",
-    title: "careful",
+    title: "s3",
   },
   {
     id: "3",
-    title: "when",
+    title: "s4",
   },
   {
     id: "4",
-    title: "you",
+    title: "s5",
   },
   {
     id: "5",
-    title: "are",
+    title: "s6",
   },
   {
     id: "6",
-    title: "playing",
+    title: "s7",
   },
   {
     id: "7",
-    title: "with",
+    title: "s8",
   },
   {
     id: "8",
-    title: "fire!",
+    title: "s9",
   },
 ];
 
