@@ -10,6 +10,7 @@ import {
 import { Audio } from "expo-av";
 import RoundButton from "../components/RoundButton";
 
+
 export async function handlerPress(id) {
   const sndObj = new Audio.Sound();
   try {
@@ -91,6 +92,7 @@ const AllScreen = () => {
     setFavoriteList([...favoriteList, item]);
     favList.push(item);
     setModalVisible(false);
+   
   };
 
   const onRemoveFavorite = (btn) => {
