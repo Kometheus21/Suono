@@ -1,12 +1,5 @@
 import React, { useState, useCallback } from "react";
-import {
-  View,
-  FlatList,
-  StyleSheet,
-  Text,
-  RefreshControl,
-  SectionList,
-} from "react-native";
+import { View, FlatList, StyleSheet, Text, RefreshControl } from "react-native";
 import RoundButton from "../components/RoundButton";
 import { favList } from "./AllScreen";
 import { handlerPress } from "./AllScreen";
