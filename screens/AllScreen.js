@@ -92,7 +92,6 @@ const AllScreen = () => {
     setFavoriteList([...favoriteList, item]);
     favList.push(item);
     setModalVisible(false);
-   
   };
 
   const onRemoveFavorite = (btn) => {
