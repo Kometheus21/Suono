@@ -33,7 +33,7 @@ const FavouriteScreen = () => {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            enabled="true"
+            enabled={true}
           />
         }
       />
